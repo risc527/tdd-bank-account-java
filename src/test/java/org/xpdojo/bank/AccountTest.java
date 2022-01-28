@@ -1,33 +1,29 @@
 package org.xpdojo.bank;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.xpdojo.bank.Account.emptyAccount;
 
 public class AccountTest {
 
     @Test
-
-	//@Disabled
-    //public void depositAnAmountToIncreaseTheBalance() {
-    //    assertThat("your first test").isBlank();
-    //}
     public void initialAccount_shouldHaveZeroBalance() {
-        Account account = new Account();
-        //account.deposit(10);
-        assertThat(account.balance().isEqualTo(0));
+        assertThat(emptyAccount().balance()).isEqualTo(0);
     }
 
-    @test
-    public void deposit(){
-        Account account = Account.emptyAccount();
-        account.deposit(amount 10);
+    @Test
+    public void depositAnAmount_shouldIncreaseBalanceBySameAmount() {
+        Account account = emptyAccount();
+        account.deposit(10);
         assertThat(account.balance()).isEqualTo(10);
     }
 
-    @test
-    public void depositMultipleAccounts(){
-        Account account
+    @Test
+    public void depositMultipleAmounts_shouldIncreaseBalanceByBothAmounts() {
+        Account account = emptyAccount();
+        account.deposit(10);
+        account.deposit(20);
+        assertThat(account.balance()).isEqualTo(30);
     }
 }
